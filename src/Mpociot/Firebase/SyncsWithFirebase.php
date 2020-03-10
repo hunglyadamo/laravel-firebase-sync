@@ -31,9 +31,12 @@ trait SyncsWithFirebase
         static::deleted(function ($model) {
             $model->saveToFirebase('delete');
         });
-        static::restored(function ($model) {
-            $model->saveToFirebase('set');
-        });
+//         static::restored(function ($model) {
+//             $model->saveToFirebase('set');
+//         });
+        static::saved(function ($model) {
+            $model->saveToFirebase('update');
+         });
     }
 
     /**
